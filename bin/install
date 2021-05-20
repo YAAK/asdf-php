@@ -214,6 +214,7 @@ os_based_configure_options() {
     local readline_path=$(homebrew_package_path readline)
     local webp_path=$(homebrew_package_path webp)
     local zlib_path=$(homebrew_package_path zlib)
+    local curl_path=$(homebrew_package_path curl)
 
     # optional
     # if these packages exist they are included in the php compilation
@@ -288,6 +289,12 @@ os_based_configure_options() {
       configure_options="$configure_options --with-zlib-dir=$zlib_path"
     else
       export ASDF_PKG_MISSING="$ASDF_PKG_MISSING zlib"
+    fi
+    
+    if [ -n "$curl_path" ]; then
+      configure_options="$configure_options --with-curl=$curl_path"
+    else
+      export ASDF_PKG_MISSING="$ASDF_PKG_MISSING curl"
     fi
 
     if [ -n "$libzip_path" ]; then
