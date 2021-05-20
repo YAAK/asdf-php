@@ -139,7 +139,6 @@ construct_configure_options() {
     --sysconfdir=$install_path \
     --with-config-file-path=$install_path \
     --with-config-file-scan-dir=$install_path/conf.d \
-    --with-curl \
     --with-external-gd \
     --with-fpm-group=www-data \
     --with-fpm-user=www-data \
